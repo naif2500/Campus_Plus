@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Content</title>
+  <style>
+    /* Default styling for larger screens (laptops, desktops) */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: top;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+  
+    /* Mobile styling */
+    @media (max-width: 768px) {
+      body {
+        height: auto;
+      }
+      .content {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+      }
+    }
+  </style>
+</head>
+<body>
+   
+
+<div style="width: 390px; height: 844px; position: relative; background: #255E91">
+    <div style="left: 86px; top: 123px; position: absolute; color: white; font-size: 40px; font-family: Orbitron; font-weight: 800; word-wrap: break-word">CAMPUS+</div>
+   
+    <div style="width: 253px; height: 47.49px; left: 71px; top: 675px; position: absolute">
+    <button onclick="window.location.href='tilmelding1.html'">
+      <div style="width: 253px; height: 47.49px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 10px"></div>
+      <div style="width: 238px; height: 29px; left: 8px; top: 9px; position: absolute; text-align: center; color: #255E91; font-size: 32px; font-family: Roboto; font-weight: 500; word-wrap: break-word">Opret profil</div>
+    </button>
+    </div>
+    <div style="left: 22px; top: 227px; position: absolute; color: white; font-size: 20px; font-family: Oxygen; font-weight: 700; word-wrap: break-word">Email</div>
+    <div style="left: 22px; top: 295px; position: absolute; color: white; font-size: 20px; font-family: Oxygen; font-weight: 700; word-wrap: break-word">Adgangskode</div>
+    <div style="left: 19px; top: 623px; position: absolute; color: white; font-size: 20px; font-family: Oxygen; font-weight: 700; word-wrap: break-word">Ikke medlem endnu? Tilmeld dig her!</div>
+
+    <div style="width: 288.31px; height: 36.41px; left: 53.69px; top: 402px; position: absolute" >
+        <button onclick="validateLogin()">
+        <div style="width: 288.31px; height: 36.41px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 10px"></div>
+        <div style="width: 288px; height: 22px; left: 0.31px; top: 7px; position: absolute; text-align: center; color: #255E91; font-size: 32px; font-family: Roboto; font-weight: 500; word-wrap: break-word">Log in</div>
+    </button>
+    </div>
+    <!-- Email Input -->
+
+    <div style="position: absolute; left: 20px; top: 252px;">
+        <input id="email" type="email"  
+               style="width: 354px; height: 36px; background: white; border: 1px solid #333; border-radius: 4px; padding: 10px; font-size: 14px; font-family: Oxygen; color: #000; box-sizing: border-box;">
+    </div>
+    
+    <!-- Password Input -->
+    <div style="position: absolute; left: 20px; top: 327px;">
+        <input id="password" type="password"  
+               style="width: 354px; height: 37px; background: white; border: 1px solid #333; border-radius: 4px; padding: 10px; font-size: 14px; font-family: Oxygen; color: #000; box-sizing: border-box;">
+    </div>
+  </div> 
+
+  <script>
+    function validateLogin() {
+        // Retrieve the saved user data from localStorage
+        const storedUserData = JSON.parse(localStorage.getItem('userInputData'));
+
+        // Check if user data exists in localStorage
+        if (!storedUserData) {
+            alert("Forkert kode eller Email");
+            return;
+        }
+
+        // Get the entered email and password
+        const enteredEmail = document.getElementById("email").value;
+        const enteredPassword = document.getElementById("password").value;
+
+        // Check if the entered email and password match the stored data
+        if (enteredEmail === storedUserData.email && enteredPassword === storedUserData.password) {
+            // If matched, redirect to Dashboard.html
+            window.location.href = "Dashboard.html";
+        } else {
+            // Show error message if not matched
+            alert("Prøv igen");
+        }
+    }
+</script>
+
+</body>
+</html>
+
