@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centered Content</title>
+  <title>Campus Plus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Oxygen:wght@400;700&family=Inter:wght@400;500&family=Roboto:wght@400;500;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* Default styling for larger screens (laptops, desktops) */
     body {
       display: flex;
       justify-content: center;
@@ -15,19 +15,16 @@
       background-color: #f0f0f0;
     }
 
-    /* Style for the content that shows/hides */
 .contentCard {
-  display: block; /* Initially hidden */
+  display: block; 
   padding: 10px;
   
 }
 
-/* When the card is open, show the content */
 .openCard.open .contentCard {
-  display: block; /* Show content when card is expanded */
+  display: block;
 }
 
-    /* Mobile styling */
     @media (max-width: 768px) {
       body {
         height: auto;
@@ -69,23 +66,18 @@
 
     <div style="left: 8px; top: 83px; position: absolute; color: black; font-size: 32px; font-family: Oxygen; font-weight: 700; word-wrap: break-word">Grupper</div>
 
-      <!-- add new card -->
-<!-- Container for the cards (height 450px, positioned relative to first card) -->
 <div id="cardContainer" style="width: 354px; height: 450px; left: 8px; top: 192px; position: relative; background: white;">
 </div>
 
-<!-- Button to add a new card (styled with image) -->
 <img onclick="addNewCard()" style="width: 90px; height: 90px; left: 291px; top: 649px; position: absolute" src="Ikoner\Grupper_ikoner\Add.png" />
 
 <script>
-// Function to create and add a new card
 function addNewCard() {
   const cardContainer = document.getElementById('cardContainer');
-  const cardSpacing =  150; // Adjust the spacing between cards as needed
+  const cardSpacing =  150; 
   const cardPosition = cardContainer.children.length * cardSpacing;
 
 
-  // Create a new card container
   const card = document.createElement('div');
   card.classList.add('card');
   card.style.width = '354px';
@@ -94,9 +86,7 @@ function addNewCard() {
   card.style.top = `${cardPosition}px`;   
   card.style.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25)';
   card.style.cursor = 'pointer';
-  card.setAttribute('onclick', 'toggleCard(this)'); // Attach toggle function to card click
-
-  // Create open and closed card states within the new card
+  card.setAttribute('onclick', 'toggleCard(this)'); 
   const openCard = document.createElement('div');
   openCard.classList.add('openCard');
   openCard.style.width = '354px';
@@ -107,7 +97,6 @@ function addNewCard() {
   openCard.style.background = 'white';
   openCard.style.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25)';
   
-  // Create content for the open card (group info)
   openCard.innerHTML = `
     <div style="width: 177px; left: 21px; top: 24px; position: absolute;">
       <span style="color: #212529; font-size: 15px; font-family: Orbitron; font-weight: 800; word-wrap: break-word">CAMPUS+ </span>
@@ -138,9 +127,7 @@ function addNewCard() {
   closedCard.style.left = '0';
   closedCard.style.background = 'white';
   closedCard.style.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25)';
-  closedCard.style.display = 'none'; // Initially hide the open card
-
-  // Create content for the closed card (group info)
+  closedCard.style.display = 'none'; 
   closedCard.innerHTML = `
     <div style="width: 177px; left: 22px; top: 5px; position: absolute;">
       <span style="color: #212529; font-size: 15px; font-family: Orbitron; font-weight: 800; word-wrap: break-word">CAMPUS+ </span>
@@ -154,29 +141,25 @@ function addNewCard() {
     </div>
   `;
 
-  // Append both the open and closed card inside the new card container
   card.appendChild(openCard);
   card.appendChild(closedCard);
 
-  // Append the new card to the container
   cardContainer.appendChild(card);
 }
 
-// Function to toggle between open and closed states for the clicked card
 function toggleCard(cardElement) {
   const openCard = cardElement.querySelector('.openCard');
   const closedCard = cardElement.querySelector('.closedCard');
   const contentCards = cardElement.querySelectorAll('.contentCard');
 
-  // Toggle visibility by switching the display property
   if (openCard.style.display === "none" || openCard.style.display === '') {
-    openCard.style.display = 'block'; // Show the open card
-    closedCard.style.display = 'none'; // Hide the closed card
-    contentCards.forEach(contentCard => contentCard.style.display = 'block'); // Show content
+    openCard.style.display = 'block';
+    closedCard.style.display = 'none'; 
+    contentCards.forEach(contentCard => contentCard.style.display = 'block'); 
   } else {
-    openCard.style.display = 'none'; // Hide the open card
-    closedCard.style.display = 'block'; // Show the closed card
-    contentCards.forEach(contentCard => contentCard.style.display = 'none'); // Hide content
+    openCard.style.display = 'none'; 
+    closedCard.style.display = 'block'; 
+    contentCards.forEach(contentCard => contentCard.style.display = 'none'); 
   }
 
 }

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centered Content</title>
+  <title>Campus Plus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Oxygen:wght@400;700&family=Inter:wght@400;500&family=Roboto:wght@400;500;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* Default styling for larger screens (laptops, desktops) */
     body {
       display: flex;
       justify-content: center;
@@ -16,7 +16,6 @@
     }
 
   
-    /* Mobile styling */
     @media (max-width: 768px) {
       body {
         height: auto;
@@ -51,14 +50,12 @@
         <div style="width: 288px; height: 22px; left: 0.31px; top: 7px; position: absolute; text-align: center; color: #255E91; font-size: 32px; font-family: Roboto; font-weight: 500; word-wrap: break-word">Log in</div>
     </button>
     </div>
-    <!-- Email Input -->
 
     <div style="position: absolute; left: 20px; top: 252px;">
         <input id="email" type="email"  
                style="width: 354px; height: 36px; background: white; border: 1px solid #333; border-radius: 4px; padding: 10px; font-size: 14px; font-family: Oxygen; color: #000; box-sizing: border-box;">
     </div>
     
-    <!-- Password Input -->
     <div style="position: absolute; left: 20px; top: 327px;">
         <input id="password" type="password"  
                style="width: 354px; height: 37px; background: white; border: 1px solid #333; border-radius: 4px; padding: 10px; font-size: 14px; font-family: Oxygen; color: #000; box-sizing: border-box;">
@@ -67,25 +64,19 @@
 
   <script>
     function validateLogin() {
-        // Retrieve the saved user data from localStorage
         const storedUserData = JSON.parse(localStorage.getItem('userInputData'));
 
-        // Check if user data exists in localStorage
         if (!storedUserData) {
             alert("Forkert kode eller Email");
             return;
         }
 
-        // Get the entered email and password
         const enteredEmail = document.getElementById("email").value;
         const enteredPassword = document.getElementById("password").value;
 
-        // Check if the entered email and password match the stored data
         if (enteredEmail === storedUserData.email && enteredPassword === storedUserData.password) {
-            // If matched, redirect to Dashboard.html
             window.location.href = "Dashboard.html";
         } else {
-            // Show error message if not matched
             alert("Prøv igen");
         }
     }
